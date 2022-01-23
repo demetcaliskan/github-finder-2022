@@ -1,8 +1,18 @@
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import Navbar from './components/layout/Navbar';
+import Footer from './components/layout/Footer';
+
 function App() {
   return (
-    <div>
-      <h1>Hello World</h1>
-    </div>
+    <Router>
+      <div className="flex flex-col justify-between h-screen">
+        <Navbar />
+        <main className='container mx-auto px-2 pb-12'>
+          Content
+        </main>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
