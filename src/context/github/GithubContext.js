@@ -10,7 +10,7 @@ export const GithubProvider = ({ children }) => {
 
     const initialState = {
         users: [],
-        laoding: false
+        loading: false
     }
 
     const [state, discpatch] = useReducer(githubReducer, initialState)
@@ -35,12 +35,19 @@ export const GithubProvider = ({ children }) => {
         })
     }
 
+    const clearUsers = () => {
+        discpatch({
+            type: 'CLEAR_USERS'
+        })
+    }
+
     const setLoading = () => discpatch({ type: 'SET_LOADING' })
 
     return <GithubContext.Provider value={{
         users: state.users,
         loading: state.loading,
-        searchUsers
+        searchUsers,
+        clearUsers
     }}>
         {children}
     </GithubContext.Provider>
